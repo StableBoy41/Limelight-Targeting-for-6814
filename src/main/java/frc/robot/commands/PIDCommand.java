@@ -32,6 +32,7 @@ public class PIDCommand extends CommandBase{
 
     @Override
     public void execute() {
-        drivetrainSubsystem.SetMotors(myPID.calculate(drivetrainSubsystem.getLeftEncoder().getDistance() * Constants.kencoderTickToFeet, setpoint), myPID.calculate(drivetrainSubsystem.getLeftEncoder().getDistance() * Constants.kencoderTickToFeet, setpoint));
+      double speed = myPID.calculate(drivetrainSubsystem.getEncoderDistance(), setpoint);
+      drivetrainSubsystem.SetMotors(speed, speed);
     }
   }
