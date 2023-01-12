@@ -39,7 +39,7 @@ public class DriveTrainSubsystem extends SubsystemBase {
     // This method will be called once per scheduler run
   }
 
-  public static void SetMotors(double leftSpeed, double rightSpeed) {
+  public void SetMotors(double leftSpeed, double rightSpeed) {
     m_left.set(leftSpeed);
     m_right.set(-rightSpeed);
   }
@@ -48,8 +48,9 @@ public class DriveTrainSubsystem extends SubsystemBase {
     m_robotDrive.setSafetyEnabled(false);
   }
 
-  public Encoder getLeftEncoder() {
-    return lEncoder;
+  public double getEncoderDistance() {
+    double encoderDistance = ((rEncoder.getDistance() + lEncoder.getDistance()) * Constants.kencoderTickToFeet)/2;
+    return encoderDistance;
   }
 
   public void resetEncoders(){

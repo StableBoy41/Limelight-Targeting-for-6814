@@ -50,7 +50,7 @@ public class ArcadeDrive extends CommandBase {
 
     double left = (rSpeed + rTurn) * 0.5;
     double right = (rSpeed - rTurn) * 0.5;
-    DriveTrainSubsystem.SetMotors(left, right);
+    drivetrainSubsystem.SetMotors(left, right);
   }
 
   // Called once the command ends or is interrupted.
